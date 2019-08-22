@@ -1,4 +1,6 @@
+(function (){
 // CODE here for your Lambda Classes
+
 
 class Person {
     constructor(name, age, location){
@@ -91,3 +93,5 @@ class ProjectManager extends Instructor {
 }
 
 let pr = new ProjectManager('Emily', 30, 'San Francisco', 'WebDev','css', 'go team!', 'EU', 'Gabriel Cabrejas');
+
+})()
