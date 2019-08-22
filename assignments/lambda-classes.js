@@ -8,11 +8,12 @@ class Person {
     }
 
     speak(){
-        return `Hello my namee is ${this.name}, I am from ${this.location}`
+        return `Hello my name is ${this.name}, I am from ${this.location}`
     }
 }
 
-let Brady = new Person('Tom Brady', 30, Boston);
+let brady = new Person('Tom Brady', 30, 'Boston');
+
 class Instructor extends Person {
     constructor(name, age, location, speciality, favLanguage, catchPhrase){
         super(name, age, location);
@@ -26,9 +27,14 @@ class Instructor extends Person {
     }
 
     grade(student, subject){
-        return `${student.name} receives a perfect score on ${subject}`
+        return `${student} receives a perfect score on ${subject}`
+    }
+
+    finalGrade(){
+        return this.grade += Math.floor(Math.random() * 100);
     }
 }
+let gabe = new Instructor('Gabriel Cabrejas', 30, 'Malaga', 'front-end','JavaScript', 'brutal!');
 
 class Student extends Person {
     constructor(name, age, location, previousBackground, className){
@@ -36,24 +42,41 @@ class Student extends Person {
         this.previousBackground = previousBackground;
         this.className = className;
         this.favSubjects = [];
+        this.grade = Math.floor(Math.random() * 100);
+        this.isGraduated = false;
     }
 
     listsSubjects (){
-        return JSON.stringify(this.favSubjects);
+        this.favSubjects.forEach(function (fav) {
+            return(fav);
+        });
     }
 
     PRAssignment (subject){
-        return `${this.student.name} has submitted a PR for ${subject}`;
+        return `${this.student} has submitted a PR for ${subject}`;
     }
 
     sprintChallenge(subject){
         return `${this.student.name} has begun sprint challenge on ${subject}`
     }
+
+    graduate(){
+        if(this. grade > 0.7){
+            this.isGraduated = true;
+        }
+        else{
+            finalGrade();
+        }
+    }
+
 }
 
+
+let motivatedStudent = new Student('Mpere Annor', 30,'Kumasi', 'Finance', 'WEBEU3');
+
 class ProjectManager extends Instructor {
-    constructor(name, age, location, gradClassName, favInstrutor){
-        super(name, age, location);
+    constructor(name, age, location, speciality, favLanguage, catchphrase, gradClassName, favInstrutor){
+        super(name, age, location, speciality, favLanguage, catchphrase);
         this.gradClassName = gradClassName;
         this.favInstrutor = favInstrutor;
     }
@@ -63,6 +86,8 @@ class ProjectManager extends Instructor {
     }
 
     debugsCode(subject, student){
-        return `${this.name} debugs ${student.name}'s code on ${subject}`
+        return `${this.name} debugs ${student}'s code on ${subject}`
     }
 }
+
+let pr = new ProjectManager('Emily', 30, 'San Francisco', 'WebDev','css', 'go team!', 'EU', 'Gabriel Cabrejas');
